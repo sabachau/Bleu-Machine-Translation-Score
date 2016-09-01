@@ -53,7 +53,6 @@ def main():
     for line in candidate_list_of_lines:
         count+= sum(Counter(line.strip().split()).values())
     
-    # c=sum(Counter(candidate_content.replace('\n',' ').split(' ')).values())
     c=count
     
     # best match length
