@@ -19,8 +19,6 @@ def populateDict(ref_path,n):
     
     if not os.path.isdir(ref_path):
         dictionary = {}
-        # print 'inside if'
-        # raw_input()
         content = open(ref_path, 'r').read().strip('\r\n')
         content_by_line = content.split('\n')
         for index, line in enumerate(content_by_line):
@@ -42,9 +40,7 @@ def populateDict(ref_path,n):
 
 
 def main():
-    # script,candidate_path,ref_path=argv
-    candidate_path='candidate-3.txt'
-    ref_path='reference-3.txt'  #'reference-3.txt'
+    script,candidate_path,ref_path=argv
     candidate_file=open(candidate_path,'r')
     candidate_content=candidate_file.read().strip('\r\n')
     candidate_list_of_lines=candidate_content.split('\n')
@@ -52,17 +48,13 @@ def main():
     
     for line in candidate_list_of_lines:
         count+= sum(Counter(line.strip().split()).values())
-    
     c=count
-    
     # best match length
     r=0 
     
     #generating unigrams, bi-grams, tri-grams, 4-grams
     n=4
     wn=float(1/4)
-    
-    # need to calc r,c from unigram data use if i==1
     clipped_counts_by_line={}
     candidate_dict={}
     total_ngram_count_by_line={}
